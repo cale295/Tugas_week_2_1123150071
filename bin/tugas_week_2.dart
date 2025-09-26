@@ -9,6 +9,7 @@ double _readNumber(String label) {
     print('Input tidak valid. Masukkan angka.');
   }
 }
+
 void main() {
   while (true) {
     print('\n=== Kalkulator Sederhana ===');
@@ -27,22 +28,46 @@ void main() {
 
     final a = _readNumber('Masukkan angka pertama');
     final b = _readNumber('Masukkan angka kedua');
-    
+
     switch (pilih) {
     case '1':
-    print('Hasil: ${a + b}');
-    break;
-    case '2':
-    print('Hasil: ${a - b}');
-    break;
-    case '3':
-    print('Hasil: ${a * b}');
-    break;
-    case '4':
-    print('Hasil: ${b != 0 ? a / b : 'Error: Pembagian dengan nol'}');
-    break;
-    default:
-    print('Pilihan tidak dikenal.');
+        double hasil = tambahken(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '2':
+        double hasil = kurangken(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '3':
+        double hasil = kaliken(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '4':
+        if (b == 0) {
+          print('Error: Pembagian dengan nol tidak diperbolehkan.');
+        } else {
+          double hasil = bagiken(a, b);
+          print('Hasil: $hasil');
+        }
+        break;
+      default:
+        print('Pilihan tidak dikenal.');
     }
   }
+}
+
+double tambahken(double a, double b) {
+  return a + b;
+}
+
+double kurangken(double a, double b) {
+  return a - b;
+}
+
+double kaliken(double a, double b) {
+  return a * b;
+}
+
+double bagiken(double a, double b) {
+  return a / b;
 }
